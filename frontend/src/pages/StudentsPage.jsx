@@ -31,6 +31,11 @@ export default function StudentsPage() {
 
   const {students, pagination, loading, deleting, addStudent, editStudent, removeStudent} = useStudents({ page, limit, search: debouncedSearch });
 
+  const handleOpenAddModal = () => {
+    setEditingStudent(null);
+    setIsFormModalOpen(true);
+  }
+  
   const handleOpenEditModal = (student) => {
     setEditingStudent(student);
     setIsFormModalOpen(true);
@@ -77,7 +82,7 @@ export default function StudentsPage() {
     <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8 space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <h2 className="text-2xl font-bold text-gray-900">Student Management System</h2>
-        <button className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-sm transition-colors cursor-pointer" onClick={handleOpenEditModal}>Add New Student</button>
+        <button className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-sm transition-colors cursor-pointer" onClick={handleOpenAddModal}>Add New Student</button>
       </div>
       
       <div className="w-full">
